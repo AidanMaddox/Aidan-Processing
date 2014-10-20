@@ -1,0 +1,25 @@
+int num = 60;  //int num makes num a variable
+float mx[] = new float[num]; // creates a aray that can stroe 60 floats
+float my[] = new float[num];
+
+void setup() {
+  size(640, 360);  // sets the size of the window
+  noStroke();  //no color change for the border lines of shapes
+  fill(255, 153); //sets the color of the shapes
+}
+
+void draw() {     //sets the looping program, every thing that is in void will loop forever until told not to
+  background(51);   //sets the background color
+
+  // Cycle through the array, using a different entry on each frame.
+  // Using modulo (%) like this is faster than moving all the values over.
+  int which = frameCount % num;  //this sets one of the valuse in the arrray to framcount divided by 60
+  mx[which] = mouseX;  //changes the location of where the code is accuring to the x value of your mouse
+  my[which] = mouseY;   //same as mouse X but for Y position of your mouse
+
+  for (int i = 0; i < num; i++) {   // this code makes the for loop only run when when i<num and adds 1 to the value of i
+    // which+1 is the smallest (the oldest in the array)
+    int index = (which+1 + i) % num;    // adds 1 to the variable wich plus the value of i divided by num
+    ellipse(mx[index], my[index], i, i); // creates an elipse at x value of the index value and y value of the index value the size of value i
+  }
+}
