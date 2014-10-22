@@ -46,7 +46,7 @@ void setup(){
     arduino.pinMode(pot2, Arduino.INPUT);
     arduino.pinMode(led,Arduino.OUTPUT);
     arduino.pinMode(led2,Arduino.OUTPUT);
-    arduino.pinMode(piezo,Arduino.OUTPUT);
+    
     
     minim = new Minim(this);
     player = minim.loadFile("Kraddy Android.mp3");//loads the music file
